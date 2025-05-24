@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+    background: radial-gradient(circle at top, #0f0f0f, #090a1a);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width:50%;
+    max-width: 420px;
+    padding: 20px;
+    z-index: 2;
+}
+
+.form-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 255, 200, 0.15), 0 0 60px rgba(0, 255, 255, 0.05);
+    text-align: center;
+    backdrop-filter: blur(8px);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.form-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #00fff0;
+    text-shadow: 0 0 2px #00fff0, 0 0 10px #00fff0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 50%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #00ffc3;
+    box-shadow: 0 0 10px #00ffc3;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+button {
+    width: 50%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(to right, #00ffc3, #00aaff);
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 15px #00ffc3;
+    transform: scale(1.05);
+}
+
+.flash {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: rgba(255, 0, 60, 0.8);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 350px) {
+    .form-box {
+        width: 50%;
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5502/index.html#tools" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+      </a>
+    <div class="form-box">
+        <h2>✅ Registration Successful!</h2>
+        <p>Welcome, <strong>{{ username }}</strong>! Your account has been created.</p>
+    </div>
+</body>
+</html>

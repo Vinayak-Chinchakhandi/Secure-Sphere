@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phishing Website Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Add this in your <head> of index.html -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+</head>
+<body class="light">
+
+<!-- Navigation Bar
+<nav class="navbar">
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/info">Info</a></li>
+    <li><a href="/about">About Us</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav> -->
+<!-- Background Video -->
+
+  <video autoplay muted loop id="light-video">
+    <source src="{{ url_for('static', filename='light_background_video.mp4') }}" type="video/mp4">
+  </video>
+  
+  <video autoplay muted loop id="dark-video">
+    <source src="{{ url_for('static', filename='background_video.mp4') }}" type="video/mp4">
+  </video>
+  
+  <div class="video-overlay"></div>
+  <a href="http://127.0.0.1:5502/index.html#tools" class="back-button">
+    <i class="fas fa-arrow-left"></i> Back
+  </a>
+
+
+<div class="theme-toggle">
+  <input type="checkbox" id="darkModeSwitch">
+  <label for="darkModeSwitch" class="toggle-label">
+    <i class="fas fa-sun"></i>
+    <i class="fas fa-moon"></i>
+  </label>
+</div>
+<div class="page-wrapper">
+<div class="main-container">
+  <h1 class="title">🔍 Phishing Website Detector</h1>
+  
+  <form action="/" method="POST" class="form-box">
+    <label for="url">Enter URL:</label>
+    <input type="text" name="url" id="url" placeholder="e.g. https://example.com" required>
+    <button type="submit"><i class="fas fa-shield-alt"></i> Check URL</button>
+  </form>
+
+  {% if prediction == 1 %}
+<div class="result-box danger">
+  <i class="fas fa-exclamation-triangle icon"></i>
+  <p>This website is <strong>Phishing!</strong></p>
+  <p class="message">❌ This website is identified as phishing. Do not enter any personal information.</p>
+  {% if reason %}
+    <p class="message"><strong>Reason:</strong> {{ reason }}</p>
+  {% endif %}
+
+  <button onclick="togglePrecautions()" class="precaution-btn">See Precautions</button>
+  <div id="precautions-box" style="display: none; margin-top: 10px;">
+    <ul class="precaution-list">
+      <li>Do not enter passwords or personal information.</li>
+      <li>Avoid clicking on suspicious links in emails.</li>
+      <li>Verify the domain and HTTPS certificate.</li>
+      <li>Enable multi-factor authentication wherever possible.</li>
+      <li>Report phishing attempts to appropriate authorities or services.</li>
+    </ul>
+  </div>
+</div>
+{% elif prediction == 0 %}
+<div class="result-box safe">
+  <i class="fas fa-check-circle icon"></i>
+  <p>This website is <strong>Safe!</strong></p>
+  <p class="message">✅ This website appears safe to use.</p>
+</div>
+{% endif %}
+
+
+</div>
+
+<footer>
+  <p>&copy; 2025 Phishing Website Detector | Made with ❤️ by Matrix Maze</p>
+</footer>
+</div>
+<script>
+function togglePrecautions() {
+    const box = document.getElementById("precautions-box");
+    box.style.display = box.style.display === "none" ? "block" : "none";
+  }
+
+  const toggle = document.getElementById("darkModeSwitch");
+const body = document.body;
+
+toggle.addEventListener("change", () => {
+  const isDark = toggle.checked;
+  body.classList.toggle("dark", isDark);
+  body.classList.toggle("light", !isDark);
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "light";
+  body.classList.add(savedTheme);
+  toggle.checked = savedTheme === "dark";
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "MatrixMaze",
+            "database": "demo",
+            "username": "root",
+            "password": "matrixmaze",
+            "connectionTimeout": 30
+        }
+    ]
+}

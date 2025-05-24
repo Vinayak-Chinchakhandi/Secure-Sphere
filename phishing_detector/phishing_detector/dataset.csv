@@ -1,0 +1,7 @@
+URL,Has_IP_Address,Length_of_URL,Num_of_Dots,Num_of_Slashes,Uses_HTTPS,label
+http://example1.com,0,23,2,2,0,1
+https://example2.com,0,23,2,2,1,0
+http://phishingsite.com,0,25,3,3,0,1
+https://safesite.com,0,22,1,1,1,0
+http://fakebank.com,0,27,3,3,0,1
+https://securewebsite.com,0,28,2,2,1,0

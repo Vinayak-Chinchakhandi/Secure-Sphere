@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guard AI - Your Cyber Security Sidekick</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+  <button id="backButton" class="back-button">
+    <i class="fa fa-arrow-left"></i> Back
+  </button>
+
+  <div class="container">
+    <div class="header">
+      <h1>Guard AI</h1>
+      <p>Your Cyber Security Sidekick</p>
+    </div>
+
+    <div class="chat-container">
+      <div id="chat-messages" class="chat-messages"></div>
+
+      <div class="input-area">
+        <textarea id="userInput" placeholder="Enter your cybersecurity query..."></textarea>
+        <button id="sendButton">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-send">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+
+      <div id="loading" class="loading-animation">
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+        <div id="loadingMessage">Processing...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>document.getElementById('backButton').addEventListener('click', function() {
+    window.location.href = '../index.html#tools';
+});</script>
+</body>
+</html>
